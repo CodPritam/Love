@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}

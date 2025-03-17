@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Gallery</title>
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <script>
+        // Check if the user is authenticated
+        fetch('http://localhost:3000/check-auth', {
+            credentials: 'include', // Include cookies in the request
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.authenticated) {
+                    window.location.href = 'auth.html'; // Redirect to the login page
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = 'auth.html'; // Redirect to the login page on error
+            });
+    </script>
+</head>
+
+<body>
+    <div class="ambient-light"></div>
+    <div class="spotlight"></div>
+    <div class="stars"></div>
+    <button class="nav-button prev" aria-label="Previous"></button>
+    <button class="nav-button next" aria-label="Next"></button>
+    <div class="gallery-container">
+        <div class="gallery"></div>
+    </div>
+
+    <script src="assets/js/gallery.js"></script>
+</body>
+
+</html>

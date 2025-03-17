@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Gallery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script>
+        // Check if the user is authenticated
+        fetch('http://localhost:3000/check-auth', {
+            credentials: 'include', // Include cookies in the request
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.authenticated) {
+                    window.location.href = 'auth.html'; // Redirect to the login page
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = 'auth.html'; // Redirect to the login page on error
+            });
+    </script>
+</head>
+
+<body>
+    <div class="page-transition"></div>
+    <div class="glass-container">
+        <h1>Welcome to Our Gallery</h1>
+        <p class="subtitle">Every moment with you is a treasure worth keeping...</p>
+        <div class="btn-container">
+            <button class="btn color-btn">Change Colors 🎨</button>
+            <button class="btn">Enter Our Love Story ✨</button>
+        </div>
+    </div>
+    <p class="love-msg">Made with love, for my pookie 💕</p>
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0, #ffdde1);
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.5s ease;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px 60px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: float 6s ease-in-out infinite;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em;
+    background: linear-gradient(45deg, #ff6b6b, #fc5c7d, #6c5b7b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    font-family: 'Quicksand', sans-serif;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    background: linear-gradient(45deg, #fc5c7d, #6c5b7b);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(252, 92, 125, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.color-btn {
+    background: linear-gradient(45deg, #ff6b6b, #fc5c7d);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(252, 92, 125, 0.6);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: floatHeart linear forwards;
+    opacity: 0.6;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.subtitle {
+    color: #ff6b6b;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.5);
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #ff6b6b, #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.love-msg {
+    position: absolute;
+    bottom: 20px;
+    font-size: 1.1em;
+    color: rgb(237, 35, 13);
+    opacity: 0.9;
+    font-weight: 600;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    z-index: 1000;
+}
